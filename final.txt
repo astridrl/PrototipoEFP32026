@@ -1,0 +1,17 @@
+commit ca9ed16f2ab8dab50caf0cbbae420244faeb267d
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon Jun 1 10:01:00 2026 -0600
+
+    Primera rama con el contenedor
+
+commit 03e69fb1bafd9d3b26e129e14cb71e84b5e08135
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon Jun 1 09:45:07 2026 -0600
+
+    Subiendo proyecto base
+
+commit ee1fb7e9361641bb9dc7c953794e781948add5ff
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Mon Jun 1 09:40:39 2026 -0600
+
+    Initial commit
