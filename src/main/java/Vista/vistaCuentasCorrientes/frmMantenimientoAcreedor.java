@@ -11,7 +11,7 @@ package Vista.vistaCuentasCorrientes;
 import Controlador.clsSeguridad; 
 import Controlador.clsBitacora;
 import Controlador.clsUsuarioConectado;
-import Controlador.controladorCuentasCorrientes.clsAcreedor;
+import Controlador.controladorCuentasCorrientes.clsCompras;
 import Modelo.BitacoraDAO;
 import Modelo.Conexion;
 import Modelo.PermisosDAO;
@@ -56,9 +56,9 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
         modelo.addColumn("Nit");
         modelo.addColumn("Cuenta Bancaria");
         modelo.addColumn("Estado");
-        clsAcreedor Acreedor = new clsAcreedor();
+        clsCompras Acreedor = new clsCompras();
    
-        List<clsAcreedor> listaAcreedor = Acreedor.getListadoAcreedores();
+        List<clsCompras> listaAcreedor = Acreedor.getListadoAcreedores();
         tablaAcreedores.setModel(modelo);
         String[] dato = new String[5];
         for (int i = 0; i < listaAcreedor.size(); i++) {
@@ -104,7 +104,7 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
- 
+
         lb2 = new javax.swing.JLabel();
         lbusu = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
@@ -129,66 +129,65 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
         label7 = new javax.swing.JLabel();
         btnReportes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
- 
         ayudas = new javax.swing.JButton();
- 
+
         lb2.setText(".");
- 
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Mantenimiento Acreedores");
         setVisible(true);
- 
+
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
- 
+
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
- 
+
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
- 
+
         Acreedores.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         Acreedores.setText("Acreedores: ");
- 
+
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
             }
         });
- 
+
         label3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label3.setText("Nombre");
- 
+
         txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
- 
+
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
             }
         });
- 
+
         tablaAcreedores.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tablaAcreedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
- 
+
             },
             new String [] {
                 "ID Acreedor", "Nombre", "Nit", "Cuenta Bancaria", "Estado"
@@ -197,37 +196,37 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
             boolean[] canEdit = new boolean [] {
                 false, true, true, true, true
             };
- 
+
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tablaAcreedores);
- 
+
         txtNit.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtNit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
- 
+
         label5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label5.setText("Nit");
- 
+
         lb.setText(".");
- 
+
         label4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label4.setText("ID a buscar");
- 
+
         btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
- 
+
         txtEstado.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtEstado.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
- 
+
         label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label6.setText("Estado");
- 
+
         txtCuentaBancaria.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtCuentaBancaria.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtCuentaBancaria.addActionListener(new java.awt.event.ActionListener() {
@@ -235,26 +234,26 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
                 txtCuentaBancariaActionPerformed(evt);
             }
         });
- 
+
         label7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label7.setText("Cuenta Bancaria");
- 
+
         btnReportes.setText("Reportes");
         btnReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportesActionPerformed(evt);
             }
         });
- 
+
         jLabel1.setText("Estatus: A = Activo     I = Inactivo\"");
- 
+
         ayudas.setText("Ayudas");
         ayudas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ayudasActionPerformed(evt);
             }
         });
- 
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -317,7 +316,7 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnActualizar)
-                        .addGap(77, 77, 77))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,18 +361,19 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnActualizar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnActualizar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addContainerGap(27, Short.MAX_VALUE))))
         );
- 
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
  
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        clsAcreedor acreedor = new clsAcreedor();
+        clsCompras acreedor = new clsCompras();
     acreedor.setAcreCodigo(Integer.parseInt(txtbuscado.getText())); // txtbuscado en minúscula, como está declarado
     acreedor.setBorrarAcreedor(acreedor);
     JOptionPane.showMessageDialog(null, "Registro Borrado\n",
@@ -388,7 +388,7 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     }//GEN-LAST:event_btnEliminarActionPerformed
     int contador=0; 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-       clsAcreedor acreedor = new clsAcreedor();
+       clsCompras acreedor = new clsCompras();
     acreedor.setAcreNombre(txtNombre.getText());
     acreedor.setAcreNit(txtNit.getText());
     acreedor.setAcreCuentaBancaria(txtCuentaBancaria.getText());
@@ -409,7 +409,7 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
             // TODO add your handling code here:       
         
-        clsAcreedor acreedor = new clsAcreedor();
+        clsCompras acreedor = new clsCompras();
     acreedor.setAcreCodigo(Integer.parseInt(txtbuscado.getText())); // txtbuscado en minúscula
     acreedor = acreedor.getBuscarAcreedorPorId(acreedor);
     System.out.println("Acreedor retornado: " + acreedor);
@@ -429,7 +429,7 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
         
-        clsAcreedor acreedor = new clsAcreedor();
+        clsCompras acreedor = new clsCompras();
     acreedor.setAcreCodigo(Integer.parseInt(txtbuscado.getText())); // txtbuscado en minúscula
     acreedor.setAcreNombre(txtNombre.getText());
     acreedor.setAcreNit(txtNit.getText());

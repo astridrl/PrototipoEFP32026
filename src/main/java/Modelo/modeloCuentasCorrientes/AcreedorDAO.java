@@ -4,6 +4,7 @@
  */
 package Modelo.modeloCuentasCorrientes;
 import Controlador.controladorCuentasCorrientes.clsAcreedor;
+import Controlador.controladorCuentasCorrientes.clsCompras;
 import Modelo.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -37,7 +38,7 @@ public class AcreedorDAO {
 
     // INSERT
 
-    public int ingresaAcreedor(clsAcreedor acreedor) {
+    public int ingresaAcreedor(clsCompras acreedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -64,11 +65,11 @@ public class AcreedorDAO {
     }
 
     // SELECT todos
-    public List<clsAcreedor> consultaAcreedores() {
+    public List<clsCompras> consultaAcreedores() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<clsAcreedor> lista = new ArrayList<>();
+        List<clsCompras> lista = new ArrayList<>();
 
         try {
             conn = Conexion.getConnection();
@@ -78,7 +79,7 @@ public class AcreedorDAO {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                clsAcreedor a = new clsAcreedor(
+                clsCompras a = new clsCompras(
                     rs.getInt("Acrecodigo"),
                     rs.getString("Acrenombre"),
                     rs.getString("Acrenit"),
@@ -101,11 +102,11 @@ public class AcreedorDAO {
 
 
     //  SELECT por Codigo
-    public clsAcreedor consultaAcreedorPorId(clsAcreedor acreedor) {
+    public clsCompras consultaAcreedorPorId(clsCompras acreedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsAcreedor resultado = null;
+        clsCompras resultado = null;
 
         try {
             conn = Conexion.getConnection();
@@ -116,7 +117,7 @@ public class AcreedorDAO {
             rs = stmt.executeQuery();
 
             if (rs.next()) {
-                resultado = new clsAcreedor(
+                resultado = new clsCompras(
                     rs.getInt("Acrecodigo"),
                     rs.getString("Acrenombre"),
                     rs.getString("Acrenit"),
@@ -138,11 +139,11 @@ public class AcreedorDAO {
     // 
     // select por nombre
 
-    public List<clsAcreedor> consultaAcreedoresPorNombre(clsAcreedor acreedor) {
+    public List<clsCompras> consultaAcreedoresPorNombre(clsCompras acreedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<clsAcreedor> lista = new ArrayList<>();
+        List<clsCompras> lista = new ArrayList<>();
 
         try {
             conn = Conexion.getConnection();
@@ -153,7 +154,7 @@ public class AcreedorDAO {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                clsAcreedor a = new clsAcreedor(
+                clsCompras a = new clsCompras(
                     rs.getInt("Acrecodigo"),
                     rs.getString("Acrenombre"),
                     rs.getString("Acrenit"),
@@ -175,11 +176,11 @@ public class AcreedorDAO {
     }
 
     // select por nit
-    public clsAcreedor consultaAcreedorPorNit(clsAcreedor acreedor) {
+    public clsCompras consultaAcreedorPorNit(clsCompras acreedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsAcreedor resultado = null;
+        clsCompras resultado = null;
 
         try {
             conn = Conexion.getConnection();
@@ -190,7 +191,7 @@ public class AcreedorDAO {
             rs = stmt.executeQuery();
 
             if (rs.next()) {
-                resultado = new clsAcreedor(
+                resultado = new clsCompras(
                     rs.getInt("Acrecodigo"),
                     rs.getString("Acrenombre"),
                     rs.getString("Acrenit"),
@@ -210,11 +211,11 @@ public class AcreedorDAO {
     }
 
     // select por estado (A/I)
-    public List<clsAcreedor> consultaAcreedoresPorEstado(clsAcreedor acreedor) {
+    public List<clsCompras> consultaAcreedoresPorEstado(clsCompras acreedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<clsAcreedor> lista = new ArrayList<>();
+        List<clsCompras> lista = new ArrayList<>();
 
         try {
             conn = Conexion.getConnection();
@@ -225,7 +226,7 @@ public class AcreedorDAO {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                clsAcreedor a = new clsAcreedor(
+                clsCompras a = new clsCompras(
                     rs.getInt("Acrecodigo"),
                     rs.getString("Acrenombre"),
                     rs.getString("Acrenit"),
@@ -247,7 +248,7 @@ public class AcreedorDAO {
     }
 
     // UPDATE
-    public int actualizaAcreedor(clsAcreedor acreedor) {
+    public int actualizaAcreedor(clsCompras acreedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -275,7 +276,7 @@ public class AcreedorDAO {
     }
 
     //DELETE
-    public int borraAcreedor(clsAcreedor acreedor) {
+    public int borraAcreedor(clsCompras acreedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -296,6 +297,34 @@ public class AcreedorDAO {
             Conexion.close(conn);
         }
         return rows;
+    }
+
+    public List<clsAcreedor> consultaAcreedoresPorNombre(clsAcreedor acreedor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public clsAcreedor consultaAcreedorPorNit(clsAcreedor acreedor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public List<clsAcreedor> consultaAcreedoresPorEstado(clsAcreedor acreedor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public int actualizaAcreedor(clsAcreedor acreedor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public int borraAcreedor(clsAcreedor acreedor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public clsAcreedor consultaAcreedorPorId(clsAcreedor acreedor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public int ingresaAcreedor(clsAcreedor acreedor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     

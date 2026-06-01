@@ -14,7 +14,7 @@ import Controlador.clsUsuarioConectado;
 import Vista.ComisionVenta.frmComisionesVentas;
 
 import Vista.vistaCuentasCorrientes.MdiGeneralCC;
-
+import Vista.Vista.Carreras.MdiGeneralCarreras;
 import Vista.Bancos.MdiBancos;
 import Vista.Logistica.MdiLogistica;
 
@@ -25,6 +25,7 @@ import java.util.HashSet;
 
 import javax.swing.JOptionPane;
 import Vista.ComercialComprasyVentas.MdiComercio;
+import Vista.Vista.Carreras.MdiGeneralCarreras;
 /**
  *
  * @author visitante
@@ -95,7 +96,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel4.setText("Departamento");
 
-        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Cuentas Corrientes", "Inventarios", "Seguridad", "Comercio", "Comisiones de ventas", "Planillas", "Logistica", " " }));
+        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Carreras", "Inventarios", "Seguridad", "Comercio", "Comisiones de ventas", "Planillas", "Logistica", " " }));
         cboOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboOpcionesActionPerformed(evt);
@@ -223,9 +224,9 @@ public class frmLogin extends javax.swing.JFrame {
 
 
 
-case "Cuentas Corrientes":
+case "Carreras":
     try {
-        MdiGeneralCC menu = new MdiGeneralCC();
+        MdiGeneralCarreras menu = new MdiGeneralCarreras();
         menu.setVisible(true);
         this.dispose();
     } catch (Exception e) {
@@ -291,6 +292,7 @@ case "Comisiones de ventas":
         System.out.println(e);
     }
     break;
+    
 
 default:
     break;
