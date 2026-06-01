@@ -9,7 +9,7 @@ import Modelo.PermisosDAO;
  * and open the template in the editor.
  */
 
-package Vista.vistaCuentasCorrientes;
+package Vista.Vista.Carreras;
 
 import Vista.vistaCuentasCorrientes.FrmFacturaCompraAcreedor;
 import Controlador.clsUsuarioConectado;
@@ -155,7 +155,7 @@ public class MdiGeneralCarreras extends javax.swing.JFrame {
 
         mnuAcreedores.setText("Cátalogos");
 
-        mnuMantenimientoAcre.setText("Mantenimiento Acreedores");
+        mnuMantenimientoAcre.setText("CRUD");
         mnuMantenimientoAcre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuMantenimientoAcreActionPerformed(evt);
@@ -304,38 +304,34 @@ public class MdiGeneralCarreras extends javax.swing.JFrame {
 
     private void mnuMantenimientoAcreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMantenimientoAcreActionPerformed
         // TODO add your handling code here:
-        System.out.println("entre a mantenimiento Acreedor");
-        frmMantenimientoAcreedor ventana = new frmMantenimientoAcreedor();
+        System.out.println("entre a mantenimiento carreras");
+        frmMantenimientoCarreras ventana = new frmMantenimientoCarreras();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        
     }//GEN-LAST:event_mnuMantenimientoAcreActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
         System.out.println("entre a Movimiento Transaccion");
-        TransaccionesCC ventana = new TransaccionesCC();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        //TransaccionesCC ventana = new TransaccionesCC();
+        //jDesktopPane1.add(ventana);
+        //Dimension desktopSize = jDesktopPane1.getSize();
+       // Dimension FrameSize = ventana.getSize();
+        //ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        cuentasporpagar formulario = new cuentasporpagar();
-        formulario.setVisible(true);
+        //cuentasporpagar formulario = new cuentasporpagar();
+        //formulario.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        System.out.println("entre a Movimiento Transaccion");
-        frmCuentasPorCobrar ventana = new frmCuentasPorCobrar();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+    
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void mnuMantenimientoFacAcreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMantenimientoFacAcreActionPerformed
@@ -353,21 +349,11 @@ public class MdiGeneralCarreras extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        System.out.println("entre a Registro factura Acreedor");
-        frmCobrosEmision ventana = new frmCobrosEmision();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height)/ 2);
-        ventana.setVisible(true);
+       
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Entrando a Gestion de Cuentas por Cobrar");
-
-        FrmPagoEmision ventana = new FrmPagoEmision();
-        ventana.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**

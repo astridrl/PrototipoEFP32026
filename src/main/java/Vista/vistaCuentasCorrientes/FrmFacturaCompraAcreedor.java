@@ -5,7 +5,7 @@
 package Vista.vistaCuentasCorrientes;
 
 import Controlador.clsUsuarioConectado;
-import Controlador.controladorCuentasCorrientes.clsAcreedor;
+import Controlador.controladorCuentasCorrientes.clsCompras;
 import Controlador.controladorCuentasCorrientes.clsFacturaCompraAcreedor;
 import Modelo.BitacoraDAO;
 import java.io.File;
@@ -49,7 +49,7 @@ public class FrmFacturaCompraAcreedor extends javax.swing.JInternalFrame {
     // =========================================================
     // DATOS EN MEMORIA
     // =========================================================
-    private List<clsAcreedor> listaAcreedores = new ArrayList<>();
+    private List<clsCompras> listaAcreedores = new ArrayList<>();
     private int facComIdActual = 0;
     int idUsuario = clsUsuarioConectado.getUsuId();
     /**
@@ -360,10 +360,10 @@ public void llenadoDeCombos() {
         listaAcreedores.clear();
         cmbAcreedor.addItem("Seleccione un acreedor");
         try {
-            clsAcreedor filtro = new clsAcreedor();
+            clsCompras filtro = new clsCompras();
             filtro.setAcreEstado("A");
-            listaAcreedores = new clsAcreedor().getBuscarAcreedoresPorEstado(filtro);
-            for (clsAcreedor a : listaAcreedores) {
+            listaAcreedores = new clsCompras().getBuscarAcreedoresPorEstado(filtro);
+            for (clsCompras a : listaAcreedores) {
                 cmbAcreedor.addItem(a.getAcreCodigo() + " - " + a.getAcreNombre());
             }
         } catch (Exception e) {
@@ -403,7 +403,7 @@ public void llenadoDeCombos() {
     }
  
     private String buscarNombreAcreedor(int acreCodigo) {
-        for (clsAcreedor a : listaAcreedores) {
+        for (clsCompras a : listaAcreedores) {
             if (a.getAcreCodigo() == acreCodigo) return a.getAcreNombre();
         }
         return String.valueOf(acreCodigo);
