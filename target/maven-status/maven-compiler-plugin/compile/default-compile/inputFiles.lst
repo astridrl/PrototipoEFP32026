@@ -5,7 +5,6 @@ C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Ayudas\ayudaComisionReporte.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\controladorCuentasCorrientes\clsCobroEmision.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\modeloPlanilla\PuestoDAO.java
-C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\Vista.Carreras\MdiSeguridad.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\vistaCuentasCorrientes\FrmPagoEmision.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\Ventas\clsFacturasventas.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\modeloCuentasCorrientes\cuentasporpagarDAO.java
@@ -16,6 +15,7 @@ C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\Logi
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\Compras\ProveedorDAO.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\Logistica\TransportistasDAO.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\modeloCuentasCorrientes\PagoEmisionDAO.java
+C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\Vista\Carreras\frmMantenimientoCarreras.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\vistaCuentasCorrientes\MdiGeneralCC.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\Compras\clsProveedor.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\Logistica\clsLinea.java
@@ -45,12 +45,14 @@ C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\mode
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\Bancos\frmMantenimientoTipoCuenta.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\Bancos\BitacoraBancariaDAO.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\ComisionesVentas\clsBitacoraComisionesVenta.java
+C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\Controlador\Carreras\clsCarreras.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\controladorPlanilla\clsConceptosPlanillas.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\controladorPlanilla\clsEmpleados.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\Bancos\frmCuentaBancaria.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\Bancos\clsMovimientoBancario.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\Bancos\ClientesDAO.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\frmLogin.java
+C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\Vista\Carreras\MdiGeneralCarreras.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\Logistica\MdiLogistica.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\PerfilDAO.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\Bancos\clsConciliacionBancaria.java
@@ -112,6 +114,7 @@ C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\vista
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\Logistica\DetallePedidosDAO.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\ComisionVenta\frmBitacoraComisionesVentas.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\Logistica\frmMantenimientoBodega.java
+C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\modeloCarreras\CarrerasDAO.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\Ventas\clsVentasDAO.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Modelo\Logistica\PedidosDAO.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\frmMantenimientoBitacora.java
@@ -154,6 +157,7 @@ C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\Logistica\clsMovimientosInventario.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\Bancos\MdiBancos.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\Logistica\frmMantenimientoProductos.java
+C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\controladorCuentasCorrientes\clsCompras.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Controlador\controladorCuentasCorrientes\clsAcreedor.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Reportes\comisionesVentas\reportescomisiones.java
 C:\Users\astri\Documents\ExamenFinal\PrototipoEFP32026\src\main\java\Vista\ComisionVenta\frmCalculoComisiones.java

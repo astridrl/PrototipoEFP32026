@@ -75,7 +75,7 @@ public class clsAcreedor {
     }
 
     // SELECT todos
-    public List<clsAcreedor> getListadoAcreedores() {
+    public List<clsCompras> getListadoAcreedores() {
         AcreedorDAO daoAcreedor = new AcreedorDAO();
         return daoAcreedor.consultaAcreedores();
     }
