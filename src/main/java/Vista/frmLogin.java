@@ -246,7 +246,7 @@ case "Inventarios":
 
 case "Seguridad":
     try {
-        MdiSeguridad menu = new MdiSeguridad();
+        MdiCarreras menu = new MdiCarreras();
         menu.setVisible(true);
         this.dispose();
     } catch (Exception e) {
