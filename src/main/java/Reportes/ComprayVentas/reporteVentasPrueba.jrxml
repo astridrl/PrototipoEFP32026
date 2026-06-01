@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1485e37c-97fb-4a1c-a032-3f4fdf6e461f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.clientes;]]>
+	</queryString>
+	<field name="Cliid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Clinombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Clinit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cliestado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Clitelefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Clidireccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Clicorreo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="229" y="25" width="100" height="20" uuid="4d3c351d-145f-4542-8530-8fcd6e910395"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Prueba Ventas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="10" width="254" height="54" uuid="9e369369-37b0-48e5-8f6f-982f672b174b"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Prueba Ventas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="41" width="100" height="20" uuid="47f7c23e-8907-43ee-8c3d-6dd6721fc2e1"/>
+				<text><![CDATA[Cliid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="41" width="100" height="20" uuid="28462e2d-dcea-4fea-8634-9bf69e72170d"/>
+				<text><![CDATA[Clinombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="286" y="41" width="100" height="20" uuid="850b69ae-76de-4a87-a29c-59195991c685"/>
+				<text><![CDATA[Clinit]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="32" y="15" width="100" height="20" uuid="7b949969-789a-45d6-9358-034d057cb200"/>
+				<textFieldExpression><![CDATA[$F{Cliid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="15" width="100" height="20" uuid="120d4166-2dc5-4944-9049-0cd75be668d1"/>
+				<textFieldExpression><![CDATA[$F{Clinombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="286" y="15" width="100" height="20" uuid="bf3a0855-f783-4ef9-8db6-2d5913543f6a"/>
+				<textFieldExpression><![CDATA[$F{Clinit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

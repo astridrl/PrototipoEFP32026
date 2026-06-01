@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports 
+  http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+  name="rptMovimientosCC" language="groovy"
+  pageWidth="595" pageHeight="842"
+  columnWidth="555" leftMargin="20" rightMargin="20"
+  topMargin="20" bottomMargin="20">
+
+  <!-- ── ESTILOS ───────────────────────────── -->
+  <style name="Title"         fontName="Arial" fontSize="20" isBold="true"/>
+  <style name="ColHeader"     fontName="Arial" fontSize="10" isBold="true" forecolor="#FFFFFF" backcolor="#1F4E79" isDefault="false"/>
+  <style name="Detail"        fontName="Arial" fontSize="10"/>
+  <style name="DetailAlt"     fontName="Arial" fontSize="10" backcolor="#E8F0F7"/>
+  <style name="Total"         fontName="Arial" fontSize="11" isBold="true"/>
+
+  <!-- ── PARÁMETROS DINÁMICOS ──────────────── -->
+  <!-- Estos los envías desde Java -->
+  <parameter name="P_CLIID"      class="java.lang.Integer">
+    <defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+  </parameter>
+  <parameter name="P_PROCODIGO"  class="java.lang.Integer">
+    <defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+  </parameter>
+  <parameter name="P_ACRECODIGO" class="java.lang.Integer">
+    <defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+  </parameter>
+  <parameter name="P_MODULO"     class="java.lang.String">
+    <defaultValueExpression><![CDATA["TODOS"]]></defaultValueExpression>
+  </parameter>
+  <parameter name="P_FECHA_INI"  class="java.lang.String">
+    <defaultValueExpression><![CDATA["2025-01-01"]]></defaultValueExpression>
+  </parameter>
+  <parameter name="P_FECHA_FIN"  class="java.lang.String">
+    <defaultValueExpression><![CDATA["2026-12-31"]]></defaultValueExpression>
+  </parameter>
+  <parameter name="P_NOMBRE"     class="java.lang.String">
+    <defaultValueExpression><![CDATA["Todos"]]></defaultValueExpression>
+  </parameter>
+
+  <!-- ── QUERY DINÁMICO ────────────────────── -->
+  <queryString>
+    <![CDATA[
+    SELECT
+        m.Mccfecha                                              AS FECHA,
+        m.Mccconcepto                                           AS CONCEPTO,
+        t.TTnombretipo                                          AS TIPO_TRANSACCION,
+        m.Mcctipo                                               AS TIPO,
+        CASE WHEN m.Mcctipo = 'CARGO' THEN m.Mccmonto ELSE 0   END AS INGRESOS,
+        CASE WHEN m.Mcctipo = 'ABONO' THEN ABS(m.Mccmonto) ELSE 0 END AS EGRESOS,
+        m.Mccsaldo                                              AS SALDO,
+        COALESCE(c.Clinombre,  '')                              AS CLIENTE,
+        COALESCE(p.Pronombre,  '')                              AS PROVEEDOR,
+        COALESCE(a.Acrenombre, '')                              AS ACREEDOR
+    FROM movimientoscc m
+    LEFT JOIN Cattipotransaccion t ON m.TTid      = t.TTid
+    LEFT JOIN clientes            c ON m.Cliid     = c.Cliid
+    LEFT JOIN proveedores         p ON m.Procodigo = p.Procodigo
+    LEFT JOIN acreedores          a ON m.Acrecodigo= a.Acrecodigo
+    WHERE
+        ($P{P_CLIID}      = 0 OR m.Cliid      = $P{P_CLIID})
+        AND ($P{P_PROCODIGO}  = 0 OR m.Procodigo  = $P{P_PROCODIGO})
+        AND ($P{P_ACRECODIGO} = 0 OR m.Acrecodigo = $P{P_ACRECODIGO})
+        AND ($P{P_MODULO}    = 'TODOS' OR m.Mccmodulo = $P{P_MODULO})
+        AND m.Mccfecha BETWEEN $P{P_FECHA_INI} AND $P{P_FECHA_FIN}
+    ORDER BY m.Mccfecha ASC
+    ]]>
+  </queryString>
+
+  <!-- ── CAMPOS ────────────────────────────── -->
+  <field name="FECHA"           class="java.sql.Timestamp"/>
+  <field name="CONCEPTO"        class="java.lang.String"/>
+  <field name="TIPO_TRANSACCION" class="java.lang.String"/>
+  <field name="TIPO"            class="java.lang.String"/>
+  <field name="INGRESOS"        class="java.math.BigDecimal"/>
+  <field name="EGRESOS"         class="java.math.BigDecimal"/>
+  <field name="SALDO"           class="java.math.BigDecimal"/>
+  <field name="CLIENTE"         class="java.lang.String"/>
+  <field name="PROVEEDOR"       class="java.lang.String"/>
+  <field name="ACREEDOR"        class="java.lang.String"/>
+
+  <!-- ── VARIABLES DE TOTALES ──────────────── -->
+  <variable name="TOTAL_INGRESOS" class="java.math.BigDecimal" calculation="Sum">
+    <variableExpression><![CDATA[$F{INGRESOS}]]></variableExpression>
+    <initialValueExpression><![CDATA[new java.math.BigDecimal(0)]]></initialValueExpression>
+  </variable>
+  <variable name="TOTAL_EGRESOS" class="java.math.BigDecimal" calculation="Sum">
+    <variableExpression><![CDATA[$F{EGRESOS}]]></variableExpression>
+    <initialValueExpression><![CDATA[new java.math.BigDecimal(0)]]></initialValueExpression>
+  </variable>
+
+  <!-- ── TITLE ─────────────────────────────── -->
+  <title>
+    <band height="80">
+      <staticText>
+        <reportElement style="Title" x="0" y="0" width="350" height="30"/>
+        <text><![CDATA[Reporte de Movimientos CC]]></text>
+      </staticText>
+      <textField>
+        <reportElement x="0" y="35" width="300" height="20"/>
+        <textElement><font fontName="Arial" size="11" isBold="true"/></textElement>
+        <textFieldExpression><![CDATA["Cuenta: " + $P{P_NOMBRE}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="0" y="55" width="400" height="20"/>
+        <textElement><font fontName="Arial" size="10"/></textElement>
+        <textFieldExpression>
+          <![CDATA["Período: " + $P{P_FECHA_INI} + " al " + $P{P_FECHA_FIN}]]>
+        </textFieldExpression>
+      </textField>
+    </band>
+  </title>
+
+  <!-- ── COLUMN HEADER ─────────────────────── -->
+  <columnHeader>
+    <band height="30">
+      <staticText>
+        <reportElement style="ColHeader" x="0"   y="5" width="90"  height="20" backcolor="#1F4E79"/>
+        <textElement><font forecolor="#FFFFFF"/></textElement>
+        <text><![CDATA[FECHA]]></text>
+      </staticText>
+      <staticText>
+        <reportElement style="ColHeader" x="90"  y="5" width="155" height="20" backcolor="#1F4E79"/>
+        <textElement><font forecolor="#FFFFFF"/></textElement>
+        <text><![CDATA[CONCEPTO]]></text>
+      </staticText>
+      <staticText>
+        <reportElement style="ColHeader" x="245" y="5" width="100" height="20" backcolor="#1F4E79"/>
+        <textElement><font forecolor="#FFFFFF"/></textElement>
+        <text><![CDATA[TIPO]]></text>
+      </staticText>
+      <staticText>
+        <reportElement style="ColHeader" x="345" y="5" width="70"  height="20" backcolor="#1F4E79"/>
+        <textElement textAlignment="Right"><font forecolor="#FFFFFF"/></textElement>
+        <text><![CDATA[CARGO]]></text>
+      </staticText>
+      <staticText>
+        <reportElement style="ColHeader" x="415" y="5" width="70"  height="20" backcolor="#1F4E79"/>
+        <textElement textAlignment="Right"><font forecolor="#FFFFFF"/></textElement>
+        <text><![CDATA[ABONO]]></text>
+      </staticText>
+      <staticText>
+        <reportElement style="ColHeader" x="485" y="5" width="70"  height="20" backcolor="#1F4E79"/>
+        <textElement textAlignment="Right"><font forecolor="#FFFFFF"/></textElement>
+        <text><![CDATA[SALDO]]></text>
+      </staticText>
+    </band>
+  </columnHeader>
+
+  <!-- ── DETAIL ────────────────────────────── -->
+  <detail>
+    <band height="20">
+      <textField pattern="dd/MM/yyyy HH:mm">
+        <reportElement x="0"   y="2" width="90"  height="16"/>
+        <textElement><font fontName="Arial" size="9"/></textElement>
+        <textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+      </textField>
+      <textField isStretchWithOverflow="true">
+        <reportElement x="90"  y="2" width="155" height="16"/>
+        <textElement><font fontName="Arial" size="9"/></textElement>
+        <textFieldExpression><![CDATA[$F{CONCEPTO}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="245" y="2" width="100" height="16"/>
+        <textElement><font fontName="Arial" size="9"/></textElement>
+        <textFieldExpression><![CDATA[$F{TIPO_TRANSACCION}]]></textFieldExpression>
+      </textField>
+      <textField pattern="Q #,##0.00">
+        <reportElement x="345" y="2" width="70"  height="16"/>
+        <textElement textAlignment="Right"><font fontName="Arial" size="9"/></textElement>
+        <textFieldExpression><![CDATA[$F{INGRESOS}]]></textFieldExpression>
+      </textField>
+      <textField pattern="Q #,##0.00">
+        <reportElement x="415" y="2" width="70"  height="16"/>
+        <textElement textAlignment="Right"><font fontName="Arial" size="9"/></textElement>
+        <textFieldExpression><![CDATA[$F{EGRESOS}]]></textFieldExpression>
+      </textField>
+      <textField pattern="Q #,##0.00">
+        <reportElement x="485" y="2" width="70"  height="16"/>
+        <textElement textAlignment="Right"><font fontName="Arial" size="9"/></textElement>
+        <textFieldExpression><![CDATA[$F{SALDO}]]></textFieldExpression>
+      </textField>
+    </band>
+  </detail>
+
+  <!-- ── SUMMARY (TOTALES) ─────────────────── -->
+  <summary>
+    <band height="40">
+      <line>
+        <reportElement x="0" y="2" width="555" height="1"/>
+        <graphicElement><pen lineWidth="1.0" lineColor="#1F4E79"/></graphicElement>
+      </line>
+      <staticText>
+        <reportElement style="Total" x="245" y="8" width="100" height="20"/>
+        <text><![CDATA[TOTALES:]]></text>
+      </staticText>
+      <textField pattern="Q #,##0.00">
+        <reportElement style="Total" x="345" y="8" width="70" height="20"/>
+        <textElement textAlignment="Right"/>
+        <textFieldExpression><![CDATA[$V{TOTAL_INGRESOS}]]></textFieldExpression>
+      </textField>
+      <textField pattern="Q #,##0.00">
+        <reportElement style="Total" x="415" y="8" width="70" height="20"/>
+        <textElement textAlignment="Right"/>
+        <textFieldExpression><![CDATA[$V{TOTAL_EGRESOS}]]></textFieldExpression>
+      </textField>
+    </band>
+  </summary>
+
+  <!-- ── PAGE FOOTER ───────────────────────── -->
+  <pageFooter>
+    <band height="20">
+      <textField pattern="dd/MM/yyyy HH:mm">
+        <reportElement x="0" y="0" width="200" height="20"/>
+        <textElement><font fontName="Arial" size="9"/></textElement>
+        <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="433" y="0" width="60" height="20"/>
+        <textElement textAlignment="Right"><font fontName="Arial" size="9"/></textElement>
+        <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de"]]></textFieldExpression>
+      </textField>
+      <textField evaluationTime="Report">
+        <reportElement x="493" y="0" width="60" height="20"/>
+        <textElement><font fontName="Arial" size="9"/></textElement>
+        <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+      </textField>
+    </band>
+  </pageFooter>
+</jasperReport>

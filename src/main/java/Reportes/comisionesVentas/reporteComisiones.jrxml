@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a54b4368-09f7-4e0a-aa1d-1b0d0db70425">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM `comisionesvendedores`]]>
+	</queryString>
+	<field name="Comid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Venid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Commontoventas" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Commeta" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Commarca" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Comventasadicionales" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Comcomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cppcodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="2" width="100" height="20" uuid="851eb289-e3c2-43c6-87a2-2dc38c5a8913"/>
+				<text><![CDATA[Comision ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="2" width="100" height="20" uuid="6bfb135b-449c-4e70-89cc-255665ff98d4"/>
+				<text><![CDATA[Ventas ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="2" width="100" height="20" uuid="bf7f97b3-e15e-4f6c-aa08-621aa627da2f"/>
+				<text><![CDATA[Comision monto ventas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="2" width="100" height="20" uuid="b66df60f-10ed-4130-b066-13b595a94085"/>
+				<text><![CDATA[Comision meta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="41" width="100" height="20" uuid="26cafcc6-9dc5-47f4-9a75-c61b38f8baae"/>
+				<text><![CDATA[Comision marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="41" width="137" height="20" uuid="64e5ea2c-019c-4dea-8c43-a623e4087614"/>
+				<text><![CDATA[Comision ventas adicionales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="41" width="100" height="20" uuid="6c349364-da19-4324-b687-5eaf9289d04d"/>
+				<text><![CDATA[Comision]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="41" width="100" height="20" uuid="4e4321a9-6d56-4cf4-8a02-424232631c14"/>
+				<text><![CDATA[Cuentas por pagar]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="32" y="39" width="100" height="20" uuid="52193619-0bf8-4ad1-988c-20cf9a627a73"/>
+				<textFieldExpression><![CDATA[$F{Comid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="45" width="100" height="20" uuid="46e1ef06-4085-4b17-89f1-91ef46f59809"/>
+				<textFieldExpression><![CDATA[$F{Venid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="53" width="100" height="20" uuid="cf3eaa12-dd85-40f7-8442-04e8e2502146"/>
+				<textFieldExpression><![CDATA[$F{Commontoventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="58" width="100" height="20" uuid="ec4b90f6-6945-44f1-b332-41afd7af25b2"/>
+				<textFieldExpression><![CDATA[$F{Commeta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="37" y="88" width="100" height="20" uuid="1e6716b6-bb24-493b-84ed-ad3f1a59ea58"/>
+				<textFieldExpression><![CDATA[$F{Commarca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="98" width="100" height="20" uuid="2fec58cd-eb08-423b-82ad-f4cb4a94ce22"/>
+				<textFieldExpression><![CDATA[$F{Comventasadicionales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="286" y="105" width="100" height="20" uuid="de459a20-7057-4e8a-bc18-1fe01aab89f3"/>
+				<textFieldExpression><![CDATA[$F{Comcomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="105" width="100" height="20" uuid="ec1c62a4-dd2d-43b3-8723-9f07d3e1a059"/>
+				<textFieldExpression><![CDATA[$F{Cppcodigo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

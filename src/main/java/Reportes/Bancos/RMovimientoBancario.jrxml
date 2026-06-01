@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="RMovimientoBancario"
+              language="groovy"
+              pageWidth="842"
+              pageHeight="595"
+              orientation="Landscape"
+              columnWidth="802"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20"
+              uuid="cfbc3197-7978-4589-b7d7-5a205b4ccb40">
+
+    <queryString language="SQL">
+        <![CDATA[SELECT * FROM `movimientobancario` ORDER BY Movbfechamovimiento]]>
+    </queryString>
+
+    <field name="Movbid" class="java.lang.Integer"/>
+    <field name="Movbfechamovimiento" class="java.time.LocalDateTime"/>
+    <field name="Movibmonto" class="java.math.BigDecimal"/>
+    <field name="Movdescripcion" class="java.lang.String"/>
+    <field name="CBANid" class="java.lang.Integer"/>
+    <field name="TTid" class="java.lang.Integer"/>
+    <field name="Movbtipomov" class="java.lang.String"/>
+    <field name="Movbreferencia" class="java.lang.String"/>
+    <field name="Movbconciliado" class="java.lang.String"/>
+
+    <group name="Movbfechamovimiento">
+        <groupExpression><![CDATA[$F{Movbfechamovimiento}]]></groupExpression>
+    </group>
+
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+
+    <!-- TÍTULO -->
+    <title>
+        <band height="70" splitType="Stretch">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="60" backcolor="#1A5276" forecolor="#1A5276"/>
+                <graphicElement fill="Solid">
+                    <pen lineWidth="0.0"/>
+                </graphicElement>
+            </rectangle>
+            <staticText>
+                <reportElement x="0" y="10" width="802" height="40" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[REPORTE DE MOVIMIENTOS BANCARIOS]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <pageHeader>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="802" height="20" forecolor="#666666"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <text><![CDATA[Sistema Bancario]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+
+    <!-- ENCABEZADO DE COLUMNAS -->
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="30" backcolor="#2E86C1" forecolor="#2E86C1"/>
+                <graphicElement fill="Solid">
+                    <pen lineWidth="0.0"/>
+                </graphicElement>
+            </rectangle>
+            <staticText>
+                <reportElement x="0" y="0" width="40" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="40" y="0" width="120" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[FECHA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="160" y="0" width="80" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[MONTO]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="240" y="0" width="120" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[DESCRIPCIÓN]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="360" y="0" width="60" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID CUENTA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="420" y="0" width="50" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[TT ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="470" y="0" width="90" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[TIPO MOV.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="560" y="0" width="120" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[REFERENCIA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="680" y="0" width="122" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[CONCILIADO]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- DETALLE -->
+    <detail>
+        <band height="25" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="24" width="802" height="1" forecolor="#CCCCCC"/>
+            </line>
+            <textField>
+                <reportElement x="0" y="0" width="40" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Movbid}]]></textFieldExpression>
+            </textField>
+            <textField pattern="yyyy-MM-dd HH:mm">
+                <reportElement x="40" y="0" width="120" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Movbfechamovimiento}]]></textFieldExpression>
+            </textField>
+            <textField pattern="#,##0.00">
+                <reportElement x="160" y="0" width="80" height="25"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Movibmonto}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="240" y="0" width="120" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Movdescripcion}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="360" y="0" width="60" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{CBANid}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="420" y="0" width="50" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{TTid}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="470" y="0" width="90" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Movbtipomov}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="560" y="0" width="120" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Movbreferencia}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="680" y="0" width="122" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Movbconciliado}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <columnFooter>
+        <band height="10" splitType="Stretch"/>
+    </columnFooter>
+
+    <!-- PIE DE PÁGINA -->
+    <pageFooter>
+        <band height="30" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="0" width="802" height="1" forecolor="#2E86C1"/>
+            </line>
+            <textField>
+                <reportElement x="0" y="5" width="802" height="20" forecolor="#666666"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de " + $V{PAGE_COUNT}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+    <!-- RESUMEN CON TOTAL -->
+    <summary>
+        <band height="40" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="0" width="802" height="1" forecolor="#2E86C1"/>
+            </line>
+            <staticText>
+                <reportElement x="0" y="8" width="160" height="20" forecolor="#1A5276"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[TOTAL MOVIMIENTOS:]]></text>
+            </staticText>
+            <textField pattern="#,##0.00">
+                <reportElement x="160" y="8" width="80" height="20" forecolor="#1A5276"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+
+</jasperReport>
